@@ -1,6 +1,8 @@
 import { View, ImageBackground, Image, SafeAreaView } from "react-native";
 import { StyleSheet } from "react-native";
 
+
+
 export default function Store(props: any) {
   return (
     <View>
