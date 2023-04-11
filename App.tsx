@@ -1,31 +1,14 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  Pressable,
-  Alert,
-} from "react-native";
+import { StyleSheet, View } from "react-native";
 import Branch from "./src/app/components/screens/branch";
 import Store from "./src/app/components/screens/store";
 // import arrow from "../GroceryNavigator-FE/src/assets/icons/arrowleft.svg"
 
 export default function App() {
-  const img = {
-    uri: "../GroceryNavigator-FE/src/assets/icons/arrowleft.svg",
-  };
   return (
     <View style={styles.container}>
-      <Text style={styles.containerText}>First let's Select the Store</Text>
       <StatusBar style="auto" />
-      <View>
-        <Store />
-      </View>
-
-      <Pressable style={styles.button}>
-        <Text style={styles.text}>Next</Text>
-      </Pressable>
+      <Store />
       {/* <Branch /> */}
     </View>
   );
@@ -44,23 +27,5 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     justifyContent: "center",
     height: "auto",
-  },
-  button: {
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: "#6B3EC6",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    width: "50%",
-    marginRight: "auto",
-    marginLeft: "auto",
-  },
-  text: {
-    color: "white",
-    marginRight: "auto",
-    marginLeft: "auto",
-  },
-  containerText: {
-    fontWeight: "bold",
   },
 });
