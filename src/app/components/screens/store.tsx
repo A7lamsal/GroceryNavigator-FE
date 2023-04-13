@@ -1,30 +1,36 @@
-import { StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { View, Image, Text, Pressable } from "react-native";
 
 export default function Store(props: any) {
   return (
+    <SafeAreaView>
     <View>
       <Text style={styles.containerText}>First let's Select the Store</Text>
-
+       
       <View style={styles.images}>
         <Image
           source={require("../../../assets/images/danube.png")}
           style={styles.Image}
         />
         <Image
-          source={require("../../../assets/images/danube.png")}
+          source={require("../../../assets/images/bindawood.png")}
           style={styles.Image}
         />
         <Image
-          source={require("../../../assets/images/danube.png")}
+          source={require("../../../assets/images/othaim.png")}
           style={styles.Image}
         />
       </View>
-
-      <Pressable style={styles.button}>
-        <Text style={styles.text}>Next</Text>
-      </Pressable>
-    </View>
+      </View>
+      
+    
+    <View >
+       <Pressable style={styles.button}>
+      <Text style={styles.text}>Next</Text>
+       </Pressable>
+       </View>
+    </SafeAreaView>
+   
   );
 }
 
@@ -43,10 +49,13 @@ const styles = StyleSheet.create({
     elevation: 3,
     backgroundColor: "#6B3EC6",
     paddingVertical: 12,
-    paddingHorizontal: 32,
+   paddingHorizontal: 32,
     width: "50%",
-    marginRight: "auto",
-    marginLeft: "auto",
+    //marginRight: "auto",
+    //marginLeft: "auto",
+    
+    
+    
   },
   text: {
     color: "white",
