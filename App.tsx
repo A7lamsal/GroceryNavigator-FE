@@ -10,11 +10,11 @@ import Cart from './src/app/components/screens/cart'
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <Store /> */}
+       <Store />
       {/* <Branch /> */}
      {/*<Categorise /> */}
       {/*<SelectCategories/>*/}
-      <Cart/>
+      {/*<Cart/>*/}
     
      
     </View>
