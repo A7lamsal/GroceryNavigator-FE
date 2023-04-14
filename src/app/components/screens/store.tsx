@@ -1,61 +1,56 @@
 import { SafeAreaView, StyleSheet } from "react-native";
 import { View, Image, Text, Pressable } from "react-native";
+import Feather from 'react-native-vector-icons/Feather';
+import Buttons from "./button";
 
 export default function Store(props: any) {
   return (
     <SafeAreaView>
-      <View>
-        <Text style={styles.containerText}>First let's Select the Store</Text>
 
-        <View style={styles.images}>
-          <Image
-            source={require("../../../assets/images/danube.png")}
-            style={styles.Image}
-          />
-          <Image
-            source={require("../../../assets/images/bindawood.png")}
-            style={styles.Image}
-          />
-          <Image
-            source={require("../../../assets/images/othaim.png")}
-            style={styles.Image}
-          />
-        </View>
-      </View>
+      <View style={{flexDirection:'column' ,marginRight:100,}}>
+          <Feather name="chevron-left" size={40} color={"#751AA0"} />
+        <Text style={{marginTop:40,marginRight:100 ,fontSize:16,fontWeight:'bold'}}>First let's Select the Store</Text>
+        
+         <View style={styles.imagesView}>
 
-      <View>
-        <Pressable style={styles.button}>
-          <Text style={styles.text}>Next</Text>
-        </Pressable>
-      </View>
+            <Image   source={require('../../../assets/images/bindawood.png')}/>
+             <Image  source={require('../../../assets/images/panda.jpeg')}/>
+
+         </View>
+         <View style={styles.imagesView}>
+
+            <Image   source={require('../../../assets/images/carrefour.jpeg')}/>
+             <Image  source={require('../../../assets/images/danube.png')}/>
+
+         </View>
+
+         <View style={styles.imagesView}>
+
+              <Image   source={require('../../../assets/images/lolo.jpeg')}/>
+             <Image style={{height:160,width:160,marginTop:15}} source={require('../../../assets/images/othaim.png')}/>
+
+         </View>
+           
+         </View>
+
+        
+        
+         <Buttons>Next</Buttons>
+        
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  Image: {
-    width: 190,
-    height: 200,
-  },
-  images: {
-    display: "flex",
-    flexDirection: "row",
-    flex: 3,
-  },
-  button: {
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: "#6B3EC6",
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    width: "50%",
-  },
-  text: {
-    color: "white",
-    marginRight: "auto",
-    marginLeft: "auto",
-  },
-  containerText: {
-    fontWeight: "bold",
+
+  imagesView:{
+    borderColor:"#9884BE",
+    height:200,
+    width:200,
+    borderRadius:5,
+    backgroundColor: "#FFFFFF",
+    flexDirection:'row',
+    
+  
   },
 });
