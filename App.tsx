@@ -14,9 +14,9 @@ export default function App() {
      {/*  <Store />*/}
       {/* <Branch /> */}
      {/*<Categorise /> */}
-      {/*<SelectCategories/>*/}
+      <SelectCategories/>
       {/*<Cart/>*/}
-      <Products/>
+      {/* <Products/> */}
     
      
     </View>
@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 16,
     backgroundColor: "#fff",
-    marginLeft: 15,
-    marginTop: 25,
+    alignItems: "center",
+    // marginLeft: 15,
+    // marginTop: 25,
   },
 });
