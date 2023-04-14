@@ -1,10 +1,10 @@
-import { View, Text,SafeAreaView,StyleSheet,Image,TouchableOpacity } from 'react-native'
+import { View, Text,SafeAreaView,StyleSheet,Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Feather from 'react-native-vector-icons/Feather';
 import { color } from 'react-native-elements/dist/helpers';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 
-export default function cart() {
+export default function Cart() {
    
 
   return (
@@ -41,14 +41,15 @@ export default function cart() {
               < View style={{alignSelf:'center'}}>
               <Text style={{color:'#372854' ,fontSize:15,marginTop:20}}>.50 SR</Text>
               </View>
-              <TouchableOpacity onPress={() => alert('We received you Order')}>
+                   
+            <TouchableOpacity onPress={() => alert('We received you Order')}>
               <View style={styles.order}>
                 <Text style={{color:'#FFFFFF'}}>order</Text>
                 </View>
+                </View>
                 </TouchableOpacity>
-            </View>
 
-          </View>
+          
     </SafeAreaView>
     </View>
   );
