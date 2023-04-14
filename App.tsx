@@ -3,20 +3,17 @@ import { StyleSheet, View } from "react-native";
 import Categorise from "./src/app/components/screens/categorise";
 import Branch from "./src/app/components/screens/branch";
 import Store from "./src/app/components/screens/store";
-import SelectCategories from './src/app/components/screens/selectCategories';
-import Cart from './src/app/components/screens/cart'
-
+import SelectCategories from "./src/app/components/screens/selectCategories";
+import Cart from "./src/app/components/screens/cart";
 
 export default function App() {
   return (
     <View style={styles.container}>
-       <Store />
+      {/* <Store /> */}
       {/* <Branch /> */}
-     {/*<Categorise /> */}
-      {/*<SelectCategories/>*/}
-      {/*<Cart/>*/}
-    
-     
+      {/* <Categorise /> */}
+      <SelectCategories />
+      {/* <Cart /> */}
     </View>
   );
 }
@@ -26,7 +23,8 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 16,
     backgroundColor: "#fff",
-    marginLeft: 15,
-    marginTop: 25,
+    alignItems: "center",
+    // marginLeft: 15,
+    // marginTop: 25,
   },
 });
