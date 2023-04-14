@@ -11,12 +11,12 @@ import Products from './src/app/components/screens/Products'
 export default function App() {
   return (
     <View style={styles.container}>
-     {/*  <Store />*/}
+     <Store />
       {/* <Branch /> */}
      {/*<Categorise /> */}
-      <SelectCategories/>
+      {/*<SelectCategories/>*/}
       {/*<Cart/>*/}
-      {/* <Products/> */}
+      {/* <Products/>*/}
     
      
     </View>
