@@ -4,83 +4,156 @@ import {
   SafeAreaView,
   StyleSheet,
   Image,
-  TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import React from "react";
 import Feather from "react-native-vector-icons/Feather";
+import Buttons from "./button";
+import { LinearGradient } from "expo-linear-gradient";
 import { color } from "react-native-elements/dist/helpers";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
+const data = [
+  {
+    img: require("../../../assets/images/Rectangle19.png"),
+    text: "Watermelon (1KG)",
+    price: "SAR 5.00/kg",
+    total: "SAR 50.00",
+  },
+  // {
+  //   img: require("../../../assets/images/drinks.png"),
+  //   text: "Products",
+  // },
+  // {
+  //   img: require("../../../assets/images/cleaning.png"),
+  //   text: "Meats",
+  // },
+];
 
 export default function Cart() {
   return (
-    <View style={styles.contener}>
-      <SafeAreaView>
-        <View style={styles.header}>
-          <View style={styles.headerIcon}>
-            <Feather name="chevron-left" size={20} color={"#751AA0"} />
+    <SafeAreaView>
+      <ScrollView>
+        <View style={styles.wrapper}>
+          <View style={styles.header}>
+            <View style={styles.headerIcon}>
+              <Feather name="chevron-left" size={20} color={"#751AA0"} />
+            </View>
+            <View style={styles.headerTitle}>
+              <Text style={{ fontSize: 30 }}>cart</Text>
+            </View>
           </View>
-          <View style={styles.headerTitle}>
-            <Text style={{ fontSize: 30 }}>cart</Text>
-          </View>
-        </View>
 
-        <View style={styles.headerstyle}>
-          <Image
-            style={{ height: 70, width: 70 }}
-            source={require("../../../assets/images/danube.png")}
-          />
-          <View
-            style={{ flexDirection: "column", marginTop: 10, marginLeft: 20 }}
-          >
-            <Text style={{ fontStyle: "italic", fontSize: 20 }}> Danube</Text>
-            <Text style={{ fontSize: 12, color: "#8D8D8D" }}>
-              SA, Jeddah thaley branch
-            </Text>
-          </View>
-        </View>
-
-        <View style={styles.pickup}>
-          <Text style={{ marginTop: 10, color: "#9884BE" }}>Pickup date</Text>
-        </View>
-
-        <View>
-          <Text
-            style={{
-              color: "#372854",
-              fontSize: 20,
-              marginTop: 50,
-              marginLeft: 50,
-            }}
-          >
-            Total
-          </Text>
-
-          <View style={{ flexDirection: "row", marginHorizontal: 50 }}>
-            <Text style={{ color: "#372854", fontSize: 30 }}>100</Text>
-            <View style={{ alignSelf: "center" }}>
-              <Text style={{ color: "#372854", fontSize: 15, marginTop: 20 }}>
-                .50 SR
+          <View style={styles.headerstyle}>
+            <Image
+              style={{
+                height: 70,
+                width: 70,
+                borderRadius: 20,
+                marginLeft: 10,
+              }}
+              source={require("../../../assets/images/danube.png")}
+            />
+            <View
+              style={{
+                flexDirection: "column",
+                justifyContent: "center",
+                marginLeft: 20,
+              }}
+            >
+              <Text style={{ fontWeight: "bold", fontSize: 20 }}>Danube</Text>
+              <Text style={{ fontSize: 12, color: "#8D8D8D" }}>
+                SA, Jeddah thaley branch
               </Text>
             </View>
-            <TouchableOpacity onPress={() => alert("We received you Order")}>
-              <View style={styles.order}>
-                <Text style={{ color: "#FFFFFF" }}>order</Text>
+          </View>
+
+          <View>
+            {data.map((datas) => {
+              return (
+                <View style={styles.Image}>
+                  <Feather name="x-square" size={20} color={"#FF4D4D"} />
+                  <Image
+                    source={datas.img}
+                    style={{ width: 70, height: 70 }}
+                  ></Image>
+                  <View style={{ gap: 3 }}>
+                    <Text style={{ fontWeight: "bold" }}>{datas.text}</Text>
+                    <Text style={{ color: "#817893" }}>{datas.price}</Text>
+                    <Text style={{ fontWeight: "bold" }}>{datas.total}</Text>
+                  </View>
+                  <View style={{ alignItems: "center" }}>
+                    <Text style={{ fontSize: 20 }}>+</Text>
+                    <LinearGradient
+                      colors={["#6B3EC6", "#471AA0"]}
+                      style={{
+                        width: 25,
+                        height: 25,
+                        borderRadius: 4,
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      {/* <View> */}
+                      <Text
+                        style={{
+                          color: "#ffffff",
+                        }}
+                      >
+                        10
+                      </Text>
+                      {/* </View> */}
+                    </LinearGradient>
+                    <Text style={{ fontSize: 20 }}>-</Text>
+                  </View>
+                </View>
+              );
+            })}
+          </View>
+
+          <View style={styles.pickup}>
+            <Text style={{ color: "#9884BE" }}>Pickup date</Text>
+          </View>
+
+          <View style={{ display: "flex", gap: 10, flexDirection: "row" }}>
+            <View>
+              <Text style={{ fontWeight: "bold", fontSize: 20 }}>Total</Text>
+              <View style={{ display: "flex", flexDirection: "row" }}>
+                <Text style={{ fontWeight: "bold", fontSize: 20 }}>100</Text>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 14,
+                    alignItems: "flex-end",
+                    justifyContent: "flex-end",
+                    display: "flex",
+                  }}
+                >
+                  .50 SAR
+                </Text>
               </View>
-            </TouchableOpacity>
+            </View>
+            <LinearGradient
+              colors={["#6B3EC6", "#471AA0"]}
+              style={{ borderRadius: 5, justifyContent: "center" }}
+            >
+              <Buttons>Order</Buttons>
+            </LinearGradient>
           </View>
         </View>
-      </SafeAreaView>
-    </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  contener: {
-    flex: 1,
-    marginTop: 50,
+  wrapper: {
+    display: "flex",
+    flexDirection: "column",
+    gap: 10,
   },
   header: {
     flexDirection: "row",
+    gap: 30,
   },
   headerIcon: {
     borderColor: "#E6D9FF",
@@ -91,16 +164,12 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     alignItems: "center",
-    marginLeft: 90,
-    marginTop: 15,
+    justifyContent: "center",
   },
   headerstyle: {
     borderRadius: 10,
-    //borderWidth:1,
-    paddingHorizontal: 30,
     marginTop: 50,
     flexDirection: "row",
-    marginRight: 20,
     borderColor: "#9884BE",
     backgroundColor: "#FFFFFF",
     shadowColor: "#9884BE",
@@ -108,41 +177,34 @@ const styles = StyleSheet.create({
     shadowOpacity: 2,
     textShadowRadius: 10,
     elevation: 5,
+    height: 100,
+    alignItems: "center",
+    gap: 10,
+  },
+  Image: {
+    display: "flex",
+    flexDirection: "row",
+    borderColor: "#9884BE",
+    backgroundColor: "#FFFFFF",
+    shadowColor: "#9884BE",
+    shadowOffset: { width: 3, height: 3 },
+    shadowOpacity: 2,
+    textShadowRadius: 10,
+    elevation: 5,
+    borderRadius: 15,
+    justifyContent: "space-evenly",
+    alignItems: "center",
   },
 
   pickup: {
-    borderRadius: 7,
-    //borderWidth:2,
-    paddingHorizontal: 30,
-    marginTop: 50,
     flexDirection: "row",
-    marginRight: 20,
-    borderColor: "#9884BE",
-    backgroundColor: "#FFFFFF",
-    shadowColor: "#9884BE",
-    height: 50,
-    shadowOffset: { width: 3, height: 3 },
-    shadowOpacity: 2,
-    textShadowRadius: 10,
-    elevation: 5,
-  },
-  order: {
-    //marginTop:,
-    marginHorizontal: 90,
-    marginRight: 90,
-    backgroundColor: "#6B3EC6",
-    borderRadius: 7,
-    height: 40,
-    flexDirection: "row",
-    width: 150,
-
-    shadowColor: "#000000",
-    shadowOffset: { width: 3, height: 3 },
-    shadowOpacity: 2,
-    textShadowRadius: 10,
-    elevation: 5,
-
-    justifyContent: "center",
     alignItems: "center",
+    paddingLeft: 10,
+    marginTop: 30,
+    borderRadius: 8,
+    borderWidth: 1,
+    height: 50,
+    borderBottomWidth: 1,
+    borderColor: "#9884BE",
   },
 });
