@@ -11,7 +11,8 @@ export default function Products(props:any) {
         return(
       <View style={styles.categorisContaner}>
          {categories.map((item ,index) =>(
-            <Text key={index} style={[styles.categoriesText ,categoryIndex == index && styles.categoriesTextSlected , categoryIndex != index && styles.categoriesnotSelect ]}>{item}</Text>
+            <Text key={index} style={[styles.categoriesText ,categoryIndex == index && styles.categoriesTextSlected ,
+               categoryIndex != index && styles.categoriesnotSelect ]}>{item}</Text>
             ))}
       </View>
         )
