@@ -11,6 +11,25 @@ import React from "react";
 import Feather from "react-native-vector-icons/Feather";
 import Buttons from "./button";
 
+const data = [
+  {
+    img: require("../../../assets/images/drinks.png"),
+    text: "Beverages",
+  },
+  {
+    img: require("../../../assets/images/products.png"),
+    text: "Products",
+  },
+  {
+    img: require("../../../assets/images/meat.png"),
+    text: "Meats",
+  },
+  {
+    img: require("../../../assets/images/cleaning.png"),
+    text: "Cleaning supplies",
+  },
+];
+
 export default function SelectCategories() {
   return (
     <SafeAreaView>
@@ -20,7 +39,7 @@ export default function SelectCategories() {
             <View style={styles.header}>
               <Feather name="chevron-left" size={20} color={"#751AA0"} />
             </View>
-            <Text style={{ fontSize: 30 }}>Categories</Text>
+            <Text style={{ fontSize: 32 }}>Categories</Text>
             <View style={styles.header}>
               <Feather name="shopping-cart" size={20} color={"#751AA0"} />
             </View>
@@ -28,11 +47,20 @@ export default function SelectCategories() {
 
           <View style={styles.headerstyle}>
             <Image
-              style={{ height: 70, width: 70, borderRadius: 20 }}
+              style={{
+                height: 70,
+                width: 70,
+                borderRadius: 20,
+                marginLeft: 10,
+              }}
               source={require("../../../assets/images/danube.png")}
             />
             <View
-              style={{ flexDirection: "column", marginTop: 10, marginLeft: 20 }}
+              style={{
+                flexDirection: "column",
+                justifyContent: "center",
+                marginLeft: 20,
+              }}
             >
               <Text style={{ fontWeight: "bold", fontSize: 20 }}>Danube</Text>
               <Text style={{ fontSize: 12, color: "#8D8D8D" }}>
@@ -53,43 +81,24 @@ export default function SelectCategories() {
           </View>
 
           <View
-            style={{ flexDirection: "row", justifyContent: "space-around" }}
+            style={{
+              flex: 1,
+              flexDirection: "row",
+              justifyContent: "space-around",
+              flexWrap: "wrap",
+            }}
           >
-            <View style={styles.Image}>
-              <Image
-                style={{ width: 100, height: 100 }}
-                source={require("../../../assets/images/Rectangle8.png")}
-              />
-              <Text>Beverages</Text>
-            </View>
-
-            <View style={styles.Image}>
-              <Image
-                style={{ width: 100, height: 100 }}
-                source={require("../../../assets/images/Rectangle10.png")}
-              />
-              <Text>Products</Text>
-            </View>
-          </View>
-
-          <View
-            style={{ flexDirection: "row", justifyContent: "space-around" }}
-          >
-            <View style={styles.Image}>
-              <Image
-                style={{ width: 100, height: 100 }}
-                source={require("../../../assets/images/Rectangle12.png")}
-              />
-              <Text>Meats</Text>
-            </View>
-
-            <View style={styles.Image}>
-              <Image
-                style={{ width: 100, height: 100 }}
-                source={require("../../../assets/images/Rectangle14.png")}
-              />
-              <Text>Cleaning supplies</Text>
-            </View>
+            {data.map((datas) => {
+              return (
+                <View style={styles.Image}>
+                  <Image
+                    source={datas.img}
+                    style={{ width: 100, height: 100 }}
+                  ></Image>
+                  <Text>{datas.text}</Text>
+                </View>
+              );
+            })}
           </View>
 
           <Buttons>Continue to Cart</Buttons>
@@ -110,8 +119,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 15,
-    paddingTop: 20,
+    // paddingHorizontal: 15,
+    // paddingTop: 20,
   },
 
   header: {
@@ -124,12 +133,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 
-  title: {
-    fontSize: 32,
-  },
   headerstyle: {
     borderRadius: 10,
-    paddingHorizontal: 30,
+    // paddingHorizontal: 30,
     marginTop: 50,
     flexDirection: "row",
     // marginRight: 20,
@@ -168,7 +174,6 @@ const styles = StyleSheet.create({
   },
   Image: {
     marginTop: 30,
-    marginRight: 30,
     borderColor: "#9884BE",
     backgroundColor: "#FFFFFF",
     shadowColor: "#9884BE",
