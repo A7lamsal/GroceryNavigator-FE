@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     gap: 16,
     backgroundColor: "#fff",
     alignItems: "center",
+    margin: 20,
     // marginLeft: 15,
     // marginTop: 25,
   },
