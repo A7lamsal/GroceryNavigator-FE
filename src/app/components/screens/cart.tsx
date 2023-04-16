@@ -1,16 +1,10 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from "react-native";
-import React from "react";
-import Feather from "react-native-vector-icons/Feather";
-import { color } from "react-native-elements/dist/helpers";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { View, Text,SafeAreaView,StyleSheet,Image, TouchableOpacity } from 'react-native'
+import React from 'react'
+import Feather from 'react-native-vector-icons/Feather';
 
+
+
+   
 export default function Cart() {
   return (
     <View style={styles.contener}>
@@ -38,38 +32,24 @@ export default function Cart() {
             </Text>
           </View>
         </View>
-
-        <View style={styles.pickup}>
-          <Text style={{ marginTop: 10, color: "#9884BE" }}>Pickup date</Text>
-        </View>
-
-        <View>
-          <Text
-            style={{
-              color: "#372854",
-              fontSize: 20,
-              marginTop: 50,
-              marginLeft: 50,
-            }}
-          >
-            Total
-          </Text>
-
-          <View style={{ flexDirection: "row", marginHorizontal: 50 }}>
-            <Text style={{ color: "#372854", fontSize: 30 }}>100</Text>
-            <View style={{ alignSelf: "center" }}>
-              <Text style={{ color: "#372854", fontSize: 15, marginTop: 20 }}>
-                .50 SR
-              </Text>
-            </View>
-            <TouchableOpacity onPress={() => alert("We received you Order")}>
-              <View style={styles.order}>
-                <Text style={{ color: "#FFFFFF" }}>order</Text>
+        
+            <View style={{flexDirection:'row',marginHorizontal:50}}>
+              <Text style={{color:'#372854' ,fontSize:30,}}>100</Text>
+              < View style={{alignSelf:'center'}}>
+              <Text style={{color:'#372854' ,fontSize:15,marginTop:20}}>.50 SR</Text>
               </View>
+                      
+              <TouchableOpacity>
+              <View style={styles.order}>
+                <Text style={{color:'#FFFFFF'}}>order</Text>
+                </View>
+                
             </TouchableOpacity>
-          </View>
-        </View>
-      </SafeAreaView>
+            
+            </View>
+           
+          
+    </SafeAreaView>
     </View>
   );
 }
